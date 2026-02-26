@@ -1,0 +1,57 @@
+<header class="topbar">
+  <div class="left-nav">
+    <button class="icon-btn" aria-label="Menu">☰</button>
+    <div class="brand">
+      <span class="logo-mark">▶</span>
+      <span class="logo-text">YouTube</span>
+      <sup>IN</sup>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <input type="text" placeholder="Search" />
+    <button class="search-btn" aria-label="Search">🔍</button>
+    <button class="mic-btn" aria-label="Voice Search">🎤</button>
+  </div>
+
+  <div class="right-nav">
+    <button class="icon-btn" aria-label="Create">＋</button>
+    <button class="icon-btn" aria-label="Notifications">🔔</button>
+    <div class="avatar">A</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a href="#" class="side-item active">🏠 Home</a>
+    <a href="#" class="side-item">🎬 Shorts</a>
+    <a href="#" class="side-item">📺 Subscriptions</a>
+    <a href="#" class="side-item">🧾 Library</a>
+  </aside>
+
+  <main class="content">
+    <div class="chips">
+      <button
+        class="chip"
+        [class.active]="i === 0"
+        *ngFor="let category of categories; let i = index"
+      >
+        {{ category }}
+      </button>
+    </div>
+
+    <section class="videos">
+      <article class="card" *ngFor="let video of videos">
+        <img class="thumbnail" [src]="video.thumb" [alt]="video.title" />
+        <div class="meta">
+          <img class="channel" [src]="video.avatar" [alt]="video.channel" />
+          <div>
+            <h3 class="title">{{ video.title }}</h3>
+            <p class="subtext">{{ video.channel }}</p>
+            <p class="subtext">{{ video.views }} • {{ video.time }}</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
